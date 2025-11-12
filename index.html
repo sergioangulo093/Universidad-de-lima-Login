@@ -2,123 +2,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mis Cursos - Universidad de Lima</title>
+  <title>Login - Universidad de Lima</title>
   <style>
     :root {
       --accent: #F36D21;
-      --bg: #f9f9f9;
+      --bg: #f5f5f5;
       --text: #333;
-      --border: #ddd;
     }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: var(--bg);
-      color: var(--text);
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: var(--accent);
-      color: white;
-      text-align: center;
-      padding: 15px 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-    }
-    header img {
-      width: 50px;
-    }
-    h1 {
+      height: 100vh;
       margin: 0;
-      font-size: 22px;
     }
-    main {
-      max-width: 800px;
-      margin: 40px auto;
+
+    .login-container {
       background: white;
+      padding: 40px;
       border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: var(--accent);
-      margin-top: 25px;
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 5px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid var(--border);
-      padding: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 320px;
       text-align: center;
     }
-    th {
-      background-color: #ffe6d3;
+
+    img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #d85e1b;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Universidad_de_Lima_logo.svg" alt="Escudo">
-    <h1>Mis Cursos - Universidad de Lima</h1>
-  </header>
+  <div class="login-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Universidad_de_Lima_logo.svg" alt="Escudo Universidad de Lima">
+    <h2>Acceso al Campus</h2>
+    <input type="text" id="usuario" placeholder="Usuario">
+    <input type="password" id="password" placeholder="Contraseña">
+    <button onclick="login()">Ingresar</button>
+    <p class="error" id="error"></p>
+  </div>
 
-  <main>
-    <h2>MATEM.GEST.NEGOCIOS / 306</h2>
-    <table>
-      <tr><th>Evaluación</th><th>Nota</th></tr>
-      <tr><td>Examen escrito 1</td><td>11</td></tr>
-      <tr><td>Examen escrito 2</td><td>14</td></tr>
-      <tr><td>Examen escrito 3</td><td>-</td></tr>
-      <tr><td>Examen escrito 4</td><td>-</td></tr>
-      <tr><td>Ejercicio colaborativo</td><td>15</td></tr>
-    </table>
+  <script>
+    function login() {
+      const user = document.getElementById("usuario").value;
+      const pass = document.getElementById("password").value;
 
-    <h2>HERR. INF. GEST. II / 401</h2>
-    <table>
-      <tr><th>Evaluación</th><th>Nota</th></tr>
-      <tr><td>Examen escrito FFINA</td><td>11</td></tr>
-      <tr><td>Examen escrito VBA</td><td>13</td></tr>
-      <tr><td>Trabajo de investigación</td><td>-</td></tr>
-      <tr><td>Examen escrito SQL</td><td>-</td></tr>
-      <tr><td>Examen escrito PYTHON</td><td>-</td></tr>
-    </table>
-
-    <h2>FUND. ADMINISTRACIÓN / 303</h2>
-    <table>
-      <tr><th>Evaluación</th><th>Nota</th></tr>
-      <tr><td>EVC</td><td>-</td></tr>
-      <tr><td>Control Lectura</td><td>14</td></tr>
-      <tr><td>Examen escrito EE</td><td>13</td></tr>
-      <tr><td>Participación PAR</td><td>-</td></tr>
-      <tr><td>Informe IN</td><td>-</td></tr>
-    </table>
-
-    <h2>ESTA.BÁS.NEGOC. / 2045</h2>
-    <table>
-      <tr><th>Evaluación</th><th>Nota</th></tr>
-      <tr><td>Examen escrito 1</td><td>10</td></tr>
-      <tr><td>Examen escrito 2</td><td>13</td></tr>
-      <tr><td>Ejercicio colaborativo</td><td>15</td></tr>
-      <tr><td>Trabajo de investigación</td><td>-</td></tr>
-      <tr><td>Examen escrito 3</td><td>-</td></tr>
-    </table>
-
-    <h2>CONTA. GENERAL / 342</h2>
-    <table>
-      <tr><th>Evaluación</th><th>Nota</th></tr>
-      <tr><td>Examen escrito 1</td><td>08</td></tr>
-      <tr><td>Trabajo de investigación 1</td><td>14</td></tr>
-      <tr><td>Examen escrito 2</td><td>14</td></tr>
-      <tr><td>Trabajo de producción 1</td><td>-</td></tr>
-      <tr><td>Examen escrito 3</td><td>-</td></tr>
-    </table>
-  </main>
+      if (user === "20210124" && pass === "sergio1234") {
+        window.location.href = "cursos.html";
+      } else {
+        document.getElementById("error").textContent = "Usuario o contraseña incorrectos";
+      }
+    }
+  </script>
 </body>
 </html>
